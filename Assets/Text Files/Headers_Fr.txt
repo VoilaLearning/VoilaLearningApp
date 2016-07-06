@@ -1,0 +1,21 @@
+PROFIL
+Avatar
+Parametres
+Compte
+CLASSE
+Babillard
+Statistiques
+Eleves
+DEMANDER A UN TUTEUR
+Appelez Tutor
+Tuteur Texte
+DES JEUX
+Jeu 1
+Jeu 2
+Jeu 3
+Jeu 4
+Jeu 5
+Defi termine en
+Joue Maintenant
+Vous Avez
+Nouvelle notification
