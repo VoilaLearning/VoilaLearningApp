@@ -3,22 +3,17 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 
-/// <summary>
-/// Responsible for the movement of the camera as it moves from canvas to canvas
-/// </summary>
-
 [DisallowMultipleComponent]
-public class HUDController : MonoBehaviour {
+public class HUDCamera : MonoBehaviour {
 
     [Header("Parameters")]
     [SerializeField] float cameraMoveSpeed;
     [SerializeField] float cameraRotationSpeed;
-
+    	
     [Header("References")]
     [SerializeField] Button[] HUDButtons;
 
     Transform destination;
-
 
     void Start () {
 
@@ -29,7 +24,7 @@ public class HUDController : MonoBehaviour {
     void Update () {
 
         if(Vector3.Distance(Camera.main.transform.position, destination.position) > 0.5f) {
-            
+
             Camera.main.transform.position = Vector3.Slerp(Camera.main.transform.position, destination.position, cameraMoveSpeed * Time.deltaTime);
         }
 
@@ -44,10 +39,9 @@ public class HUDController : MonoBehaviour {
 
         BoldActiveButton();
         destination = newDestination;
-        //Camera.main.transform.eulerAngles = newDestination.eulerAngles;
     }
 
-    void BoldActiveButton () {
+    public void BoldActiveButton () {
 
         foreach (Button button in HUDButtons) {
 
