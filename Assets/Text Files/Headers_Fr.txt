@@ -2,6 +2,7 @@ PROFIL
 Avatar
 Parametres
 Compte
+Boutique
 CLASSE
 Babillard
 Statistiques
@@ -19,3 +20,9 @@ Defi termine en
 Joue Maintenant
 Vous Avez
 Nouvelle notification
+Classe
+Tutor
+Domicile
+Des Jeux
+Profil
+Changer de Langue

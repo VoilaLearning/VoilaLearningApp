@@ -2,6 +2,7 @@ PROFILE
 Avatar
 Settings
 Account
+Store
 CLASS
 Message Board
 Stats
@@ -19,3 +20,9 @@ Challenge Ends In
 Play Now
 You Have
 New Notification
+Class
+Tutor
+Home
+Games
+Profile
+Change Language
