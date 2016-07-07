@@ -11,4 +11,19 @@ public static class ExtensionMethods {
             transform.GetChild(i).gameObject.SetActive(true);
         }
     }
+
+    public static int GetActiveChildCount (this Transform transform) {
+
+        int count = 0;
+
+        foreach(Transform child in transform) {
+
+            if(child.gameObject.activeSelf) {
+
+                count++;
+            }
+        }
+
+        return count;
+    }
 }

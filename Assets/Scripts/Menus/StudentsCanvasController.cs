@@ -28,13 +28,8 @@ public class StudentsCanvasController : MonoBehaviour {
         scrollViewContent.SetAllChildrenActive();
 
         int totalChildren = scrollViewContent.childCount;
-        int inactiveChildren = 0;
 
-        if (input == "") {
-
-            scrollViewContent.SetAllChildrenActive();
-        }
-        else {
+        if(input != "") {
             
             // Show only matching students
             for (int i = 0; i < totalChildren; i++) {
@@ -42,14 +37,17 @@ public class StudentsCanvasController : MonoBehaviour {
                 if (!scrollViewContent.GetChild(i).GetComponentInChildren<Text>().text.Contains(input)) {
 
                     scrollViewContent.GetChild(i).gameObject.SetActive(false);
-                    inactiveChildren++;
                 }
             }
         }
 
+        AdjustContentHeight();
+    }
+
+    void AdjustContentHeight () {
+
         float contentWidth = scrollViewContent.GetComponent<RectTransform>().sizeDelta.x;
-        int activeChildren = totalChildren - inactiveChildren;
-        float contentHeight = activeChildren * 175;
+        float contentHeight = scrollViewContent.GetActiveChildCount() * 175;
         scrollViewContent.GetComponent<RectTransform>().sizeDelta = new Vector2(contentWidth, contentHeight);
     }
 }
