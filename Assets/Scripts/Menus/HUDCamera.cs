@@ -18,7 +18,7 @@ public class HUDCamera : MonoBehaviour {
     void Start () {
 
         destination = Camera.main.transform;
-        HUDButtons[0].GetComponentInChildren<Text>().fontStyle = FontStyle.Bold;
+        HUDButtons[0].transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = 100 * Vector3.one;
     }
 
     void Update () {
@@ -45,9 +45,9 @@ public class HUDCamera : MonoBehaviour {
 
         foreach (Button button in HUDButtons) {
 
-            button.GetComponentInChildren<Text>().fontStyle = FontStyle.Normal;
+            button.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = 100 * Vector3.one;
         }
 
-        EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().fontStyle = FontStyle.Bold;
+        EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = 135 * Vector3.one;
     }
 }
