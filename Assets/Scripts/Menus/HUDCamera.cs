@@ -48,6 +48,8 @@ public class HUDCamera : MonoBehaviour {
             button.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = 100 * Vector3.one;
         }
 
-        EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = 135 * Vector3.one;
+        if (EventSystem.current.currentSelectedGameObject != null) {
+            EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = 135 * Vector3.one;
+        }
     }
 }
