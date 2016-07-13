@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using System.Collections;
 
 [DisallowMultipleComponent]
 public class HUDCamera : MonoBehaviour {
@@ -9,16 +6,15 @@ public class HUDCamera : MonoBehaviour {
     [Header("Parameters")]
     [SerializeField] float cameraMoveSpeed;
     [SerializeField] float cameraRotationSpeed;
-    	
+
     [Header("References")]
-    [SerializeField] Button[] HUDButtons;
+    [SerializeField] GameObject mainMenu;
 
     Transform destination;
 
     void Start () {
 
         destination = Camera.main.transform;
-        HUDButtons[0].transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = 100 * Vector3.one;
     }
 
     void Update () {
@@ -34,22 +30,10 @@ public class HUDCamera : MonoBehaviour {
         }
     }
 
-    // Called by the buttons on the bottom panel of the HUD Canvas
+    // Called by MainMenuController.cs
     public void SetNewDestination (Transform newDestination) {
 
-        BoldActiveButton();
+        if (mainMenu.activeSelf) { mainMenu.GetComponent<MainMenuController>().BoldActiveButton(); }
         destination = newDestination;
-    }
-
-    public void BoldActiveButton () {
-
-        foreach (Button button in HUDButtons) {
-
-            button.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = 100 * Vector3.one;
-        }
-
-        if (EventSystem.current.currentSelectedGameObject != null) {
-            EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = 135 * Vector3.one;
-        }
     }
 }

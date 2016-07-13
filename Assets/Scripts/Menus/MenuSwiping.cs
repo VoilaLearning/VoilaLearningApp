@@ -1,17 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
 [DisallowMultipleComponent]
 public class MenuSwiping : MonoBehaviour {
 
-    [SerializeField] Transform[] menuCameraPositions;
-    [SerializeField] Text tempText;
-
     Vector2 touchStartPosition;
     Vector2 touchEndPosition;
-    int currentMenuIndex = 2;
+
 
     void Update () {
 
@@ -36,20 +34,12 @@ public class MenuSwiping : MonoBehaviour {
 
         if(deltaPosition.x > 0.3f * Screen.width) { // L to R
 
-            currentMenuIndex--;
-            if(currentMenuIndex < 0) { currentMenuIndex = menuCameraPositions.Length - 1; }
-            MoveCamera();
+            this.GetComponent<MainMenuController>().ChangeCurrentMenuIndex(-1);
+
         }
         else if(deltaPosition.x < -0.3f * Screen.width) { // R to L
-            
-            currentMenuIndex++;
-            if(currentMenuIndex >= menuCameraPositions.Length) { currentMenuIndex = 0; }
-            MoveCamera();
+
+            this.GetComponent<MainMenuController>().ChangeCurrentMenuIndex(1);
         }
-    }
-
-    void MoveCamera () {
-
-        Camera.main.GetComponent<HUDCamera>().SetNewDestination(menuCameraPositions[currentMenuIndex].transform);
     }
 }
