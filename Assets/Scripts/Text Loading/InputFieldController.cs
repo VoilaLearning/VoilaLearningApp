@@ -7,8 +7,7 @@ public class InputFieldController : MonoBehaviour {
 	[SerializeField] GameObject destroyButton;
 	[SerializeField] GameObject editButton;
 
-	Color activeColor = Color.white;
-	Color inactiveColor = Color.black;
+	bool closed;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +24,6 @@ public class InputFieldController : MonoBehaviour {
 	}
 
 	public void FinishInput(){
-		Debug.Log ("Input Edited");
 		// Make it no longer interractable
 		this.GetComponent<InputField>().interactable = false;
 		// Shrink Box Down 0.5, 0.5, 0.5
@@ -34,10 +32,17 @@ public class InputFieldController : MonoBehaviour {
 		destroyButton.SetActive(false);
 		// Activate the re-open Button
 		editButton.SetActive(true);
-		// Change Color of input field?? 
+		closed = true;
 	}
 
 	public void OpenInputField(){
+		InputField[] tempArray = GameObject.FindObjectsOfType<InputField> ();
+		for (int i = 0; i < tempArray.Length; i++) {
+			if (tempArray [i].GetComponent<InputFieldController> ().IsClosed() == false) {
+				tempArray [i].GetComponent<InputFieldController> ().FinishInput ();
+			}
+		}
+
 		// Make it interractable
 		this.GetComponent<InputField>().interactable = true;
 		// Increase size to original
@@ -46,6 +51,10 @@ public class InputFieldController : MonoBehaviour {
 		destroyButton.SetActive(true);
 		// deactivate the re-open Button
 		editButton.SetActive(false);
-		// Change Color of input field?? 
+		closed = false;
+	}
+
+	public bool IsClosed(){
+		return closed;
 	}
 }
