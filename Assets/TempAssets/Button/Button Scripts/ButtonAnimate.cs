@@ -8,7 +8,7 @@ public class ButtonAnimate : MonoBehaviour {
 
     public bool forceMyPies = false;
 
-    public int trigger = 9;
+    public int trigger = 10;
 
 
     void Start()
@@ -87,6 +87,22 @@ public class ButtonAnimate : MonoBehaviour {
         else if (trigger == 8 && forceMyPies == true)
         {
             anim.Play("BotRightClick", -1, 0f);
+            forceMyPies = false;
+
+        }
+
+        // GAME FLIP
+        else if (trigger == 9 && forceMyPies == true)
+        {
+            anim.Play("GameFlip", -1, 0f);
+            forceMyPies = false;
+
+        }
+
+        // GAME Reverse
+        else if (trigger == 10 && forceMyPies == true)
+        {
+            anim.Play("GameReverse", -1, 0f);
             forceMyPies = false;
 
         }
