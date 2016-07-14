@@ -9,17 +9,20 @@ public class ClickForTextBox : MonoBehaviour, IPointerClickHandler {
 	[SerializeField] InputField textInput;
 
 	public void OnPointerClick(PointerEventData eventData){
-		// Find all other text box
-		InputField[] otherFields = GameObject.FindObjectsOfType<InputField>();
-		// close them 
-		for (int i = 0; i < otherFields.Length; i++){
-			otherFields [i].GetComponent<InputFieldController> ().FinishInput ();	
-		}
+		Debug.Log ("Click click!");
+		if (pictureWordGame.GetGameState () == PictureWordGame.GameState.LABEL_PIC) {
+			// Find all other text box
+			InputField[] otherFields = GameObject.FindObjectsOfType<InputField> ();
+			// close them 
+			for (int i = 0; i < otherFields.Length; i++) {
+				otherFields [i].GetComponent<InputFieldController> ().FinishInput ();	
+			}
 
-		pictureWordGame.ShowButton ();
-		InputField newInput = Instantiate (textInput, Vector3.zero, Quaternion.identity) as InputField;
-		newInput.transform.SetParent (this.transform.parent);
-		newInput.GetComponent<RectTransform> ().position = Input.mousePosition;
-		newInput.transform.localScale = Vector3.one;
+			pictureWordGame.ShowButton ();
+			InputField newInput = Instantiate (textInput, Vector3.zero, Quaternion.identity) as InputField;
+			newInput.transform.SetParent (this.transform.parent);
+			newInput.GetComponent<RectTransform> ().position = Input.mousePosition;
+			newInput.transform.localScale = Vector3.one;
+		}
 	}
 }
