@@ -9,16 +9,6 @@ public class InputFieldController : MonoBehaviour {
 
 	bool closed;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 	public void DestroyField(){
 		Destroy (this.gameObject);
 	}

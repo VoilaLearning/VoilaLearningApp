@@ -22,6 +22,10 @@ public class MainMenuController : MonoBehaviour {
 
     int currentMenuIndex = 2;
 
+	void Start(){
+		Screen.orientation = ScreenOrientation.Portrait;
+	}
+
     void Awake () {
 
         HUDButtons[currentMenuIndex].transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = selectedIconSize * Vector3.one;
