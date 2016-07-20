@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public bool isDrawingTurn = true;
     public bool gameOver;
 
+    public Text player2GuessText;
     public Text attemptText;
     public Text beginningPromptText;
     public Button sendPhoto;
@@ -26,6 +27,11 @@ public class GameManager : MonoBehaviour
     public Button redButton;
     public Button greenButton;
     public Button blueButton;
+    public Button tealButton;
+    public Button purpleButton;
+    public Button pinkButton;
+    public Button yellowButton;
+    public Button orangeButton;
     public Button blackButton;
     public bool doneTextCheck;
     // Use this for initialization
@@ -49,6 +55,11 @@ public class GameManager : MonoBehaviour
             redButton.gameObject.SetActive(false);
             greenButton.gameObject.SetActive(false);
             blueButton.gameObject.SetActive(false);
+            tealButton.gameObject.SetActive(false);
+            purpleButton.gameObject.SetActive(false);
+            pinkButton.gameObject.SetActive(false);
+            yellowButton.gameObject.SetActive(false);
+            orangeButton.gameObject.SetActive(false);
             blackButton.gameObject.SetActive(false);
             showSwatches = !showSwatches;
             Draw.canDraw = false;
@@ -58,6 +69,11 @@ public class GameManager : MonoBehaviour
             redButton.gameObject.SetActive(true);
             greenButton.gameObject.SetActive(true);
             blueButton.gameObject.SetActive(true);
+            tealButton.gameObject.SetActive(true);
+            purpleButton.gameObject.SetActive(true);
+            pinkButton.gameObject.SetActive(true);
+            yellowButton.gameObject.SetActive(true);
+            orangeButton.gameObject.SetActive(true);
             blackButton.gameObject.SetActive(true);
             showSwatches = !showSwatches;
         }
@@ -91,6 +107,7 @@ public class GameManager : MonoBehaviour
             //We'll get to this
             gameOver = true;
             sendPhoto.gameObject.SetActive(false);
+            player2GuessText.gameObject.SetActive(false);
             //Debug.Log(attemptText);
             attemptText.gameObject.SetActive(true);
             continueButton.gameObject.SetActive(true);
@@ -130,7 +147,7 @@ public class GameManager : MonoBehaviour
             }
             else if (attemptID == 4 && !showingDrawing)
             {
-                //Application.LoadLevel("MainMenu");
+                Application.LoadLevel("Gucci Main");
             }
         }
         else
