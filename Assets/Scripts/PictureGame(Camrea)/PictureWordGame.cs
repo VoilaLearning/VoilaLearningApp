@@ -34,6 +34,7 @@ public class PictureWordGame : MonoBehaviour {
 	bool pictureLoaded;
 
 	void Start(){
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
 		currentGameState = GameState.INTRO;
 		introStateUI.SetActive (true);
 		pictureLoaded = false;
@@ -41,11 +42,6 @@ public class PictureWordGame : MonoBehaviour {
 		for (int i = 0; i < wordsToFindUI.Length; i++) {
 			wordsToFindUI [i].text = (i + 1).ToString() + ". " + wordsToFind [i];
 		}
-	}
-
-	void OnEnable(){
-	
-		// Here reset all the values and restart the game esentially
 	}
 
 	public void CheckWords(){

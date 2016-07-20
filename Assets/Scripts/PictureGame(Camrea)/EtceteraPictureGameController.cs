@@ -11,6 +11,7 @@ namespace Prime31
 
 		[SerializeField] PictureWordGame pictureWordGame;
 		[SerializeField] Image imagePlane;
+		[SerializeField] GameObject LoadingSprite;
 		string imagePath;
 
 		void Start(){
@@ -22,7 +23,9 @@ namespace Prime31
 		}
 
 		public void OpenCamera(){
+			imagePath = null;
 			EtceteraBinding.promptForPhoto (0.25f, PhotoPromptType.Camera);
+			StartCoroutine (LoadPic ());
 		}
 
 		public void LoadPicture(){
@@ -33,6 +36,21 @@ namespace Prime31
 
 			/* FOR TESTING */
 			// pictureWordGame.SetPictureLoaded (true);
+			StartCoroutine (EtceteraManager.textureFromFileAtPath ("file://" + imagePath, textureLoaded, textureLoadFailed));
+		}
+
+		IEnumerator LoadPic(){
+
+			LoadingSprite.gameObject.SetActive (true);
+
+			// yield return new WaitForSeconds(3);
+
+			while (imagePath == null) {
+				yield return null; 
+			}
+
+			LoadingSprite.gameObject.SetActive (false);
+
 			StartCoroutine (EtceteraManager.textureFromFileAtPath ("file://" + imagePath, textureLoaded, textureLoadFailed));
 		}
 
