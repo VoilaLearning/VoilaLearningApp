@@ -61,5 +61,8 @@ public class TwentyOneQuestionsController : MonoBehaviour {
         // Set question number
         int roundNumber = game.GetComponent<TwentyOneQuestionsGame>().GetRound();
         newGameListing.transform.GetChild(4).GetComponent<Text>().text = "Q's\n" + roundNumber + "/21";
+
+        // Set a reference from the game to the listing
+
     }
 }
