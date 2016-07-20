@@ -22,7 +22,7 @@ public class MainMenuController : MonoBehaviour {
 
     int currentMenuIndex = 2;
 
-	void Start(){
+	void OnEnable(){
 		Screen.orientation = ScreenOrientation.Portrait;
 	}
 
