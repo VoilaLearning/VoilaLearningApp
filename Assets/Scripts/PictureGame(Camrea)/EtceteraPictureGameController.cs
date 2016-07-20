@@ -34,8 +34,6 @@ namespace Prime31
 				return;
 			}
 
-			/* FOR TESTING */
-			// pictureWordGame.SetPictureLoaded (true);
 			StartCoroutine (EtceteraManager.textureFromFileAtPath ("file://" + imagePath, textureLoaded, textureLoadFailed));
 		}
 
