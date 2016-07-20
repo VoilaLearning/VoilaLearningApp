@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ButtonTrigger : MonoBehaviour {
 
-    public int trigger = 11;
+    public int trigger = 12;
     public ButtonAnimate buttonAnimate;
 
 
@@ -89,21 +89,8 @@ public class ButtonTrigger : MonoBehaviour {
 
         }
 
-        // GAME FLIP
-        else if (gameObject.tag == "game_flip")
-            {
-                buttonAnimate.trigger = 9;
-                buttonAnimate.forceMyPies = true;
-                Debug.Log("Flip");
-            }
 
-        // GAME FLIP
-        else if (gameObject.tag == "game_reverse")
-        {
-            buttonAnimate.trigger = 10;
-            buttonAnimate.forceMyPies = true;
-            Debug.Log("Reverse");
-        }
+
 
 
     }
