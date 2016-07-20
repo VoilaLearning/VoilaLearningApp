@@ -3,6 +3,13 @@ using System.Collections;
 
 public static class ExtensionMethods {
 
+    public static void ResetTransform(this Transform transform) {
+
+        transform.position = Vector3.one;
+        transform.rotation = Quaternion.identity;
+        transform.localScale = Vector3.one;
+    }
+
     public static void SetAllChildrenActive(this Transform transform) {
 
         int childCount = transform.childCount;
