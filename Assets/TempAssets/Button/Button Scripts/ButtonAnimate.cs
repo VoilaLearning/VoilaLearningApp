@@ -5,7 +5,9 @@ public class ButtonAnimate : MonoBehaviour {
 
 
     public Animator anim;
+
     public bool forceMyPies = false;
+
     public int trigger = 10;
 
 
@@ -18,8 +20,6 @@ public class ButtonAnimate : MonoBehaviour {
     // Triggers animations on click
     void Update()
     {
-
-
         // TOP LEFT
         if (trigger == 0 && forceMyPies == true)
         {
@@ -91,8 +91,21 @@ public class ButtonAnimate : MonoBehaviour {
 
         }
 
+        // GAME FLIP
+        else if (trigger == 9 && forceMyPies == true)
+        {
+            anim.Play("GameFlip", -1, 0f);
+            forceMyPies = false;
 
+        }
 
+        // GAME Reverse
+        else if (trigger == 10 && forceMyPies == true)
+        {
+            anim.Play("GameReverse", -1, 0f);
+            forceMyPies = false;
+
+        }
 
     }
 

@@ -6,12 +6,12 @@ public class SwapButtons : MonoBehaviour {
     public static GameObject tempBrush;
     public GameObject gameManager;
     public static InputField inputField;
-    public Text text;
+    public static Text text;
     // Use this for initialization
     void Start ()
     {
         inputField = Canvas.FindObjectOfType<InputField>();
-        //text = GameObject.FindGameObjectWithTag("Guess").GetComponent<Text>();
+        text = GameObject.FindGameObjectWithTag("Guess").GetComponent<Text>();
         gameManager = GameObject.FindGameObjectWithTag("Game_Manager");
 	}
 	
