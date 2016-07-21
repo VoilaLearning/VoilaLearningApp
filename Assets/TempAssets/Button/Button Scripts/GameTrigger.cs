@@ -15,7 +15,7 @@ public class GameTrigger : MonoBehaviour {
     void OnMouseDown()
     { 
 	
-                // GAME FLIP
+        // GAME FLIP
         if (gameObject.tag == "game_flip")
         {
             gameAnimate.trigger = 1;
@@ -23,7 +23,7 @@ public class GameTrigger : MonoBehaviour {
             Debug.Log("Flip");
         }
 
-        // GAME FLIP
+        // GAME REVERSE
         else if (gameObject.tag == "game_reverse")
         {
             gameAnimate.trigger = 2;
@@ -38,9 +38,6 @@ public class GameTrigger : MonoBehaviour {
             gameAnimate.forceMyPies = true;
             Debug.Log("PLAAY GAME");
         }
-
-
-
 
     }
 }

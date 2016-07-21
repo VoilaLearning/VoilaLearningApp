@@ -6,6 +6,7 @@ public class ButtonScale : MonoBehaviour {
     private float startingDistance;
     private Vector3 startingScale;
     public float distThreshold;
+    public CanvasElementDrift canvasDrift;
 
     public Vector3 shrink = new Vector3(0,0,0);
     public Vector3 grow = new Vector3(1,1,1);
@@ -18,6 +19,8 @@ public class ButtonScale : MonoBehaviour {
         startingDistance = Vector3.Distance(Camera.main.transform.position, transform.position);
         //Get starting scale of the object, in the previous version it would have scaled everything to one.
         startingScale = transform.localScale;
+
+        canvasDrift = this.GetComponentInParent<CanvasElementDrift>();
     }
 
     void FixedUpdate()
@@ -29,10 +32,17 @@ public class ButtonScale : MonoBehaviour {
         //SHRINK
         if (curDistance > distThreshold)
             transform.localScale = Vector3.Lerp(this.transform.localScale, shrink, Time.deltaTime * Random.Range(15f, 25f));
-        
+
         //GROW
         else
             transform.localScale = Vector3.Lerp(this.transform.localScale, grow, Time.deltaTime * Random.Range(0.5f, 6f)); ;
+
+
+        if (transform.localScale == new Vector3(0, 0, 0))
+            canvasDrift.enabled = false;
+
+        else
+            canvasDrift.enabled = true;
 
     }
 }
