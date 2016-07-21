@@ -38,11 +38,14 @@ public class ButtonScale : MonoBehaviour {
             transform.localScale = Vector3.Lerp(this.transform.localScale, grow, Time.deltaTime * Random.Range(0.5f, 6f)); ;
 
 
-        if (transform.localScale == new Vector3(0, 0, 0))
-            canvasDrift.enabled = false;
+        if (canvasDrift != null)
+        {
+            if (transform.localScale == new Vector3(0, 0, 0))
+                canvasDrift.enabled = false;
 
-        else
-            canvasDrift.enabled = true;
+            else
+                canvasDrift.enabled = true;
+        }
 
     }
 }
